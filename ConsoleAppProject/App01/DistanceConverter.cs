@@ -11,9 +11,10 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-<<<<<<< HEAD
+
         public const int FEET_IN_MILES = 5280;
         public const double METRES_IN_MILES = 1609.34;
+        public const double FEET_IN_METRES = 3.28;
 
 
         public DistanceUnits fromUnit { get; set; }
@@ -117,35 +118,6 @@ namespace ConsoleAppProject.App01
             }
 
         }
-
-
-
-
-
-        /// <summary>
-        ///  Output a message to the user to enter the miles and then read it in a string
-        ///  and convert it to a double
-        /// </summary>
-
-
-
-=======
-        private int miles;
-        private int feet;
-        private string value;
-
-        public void Run()
-        {
-            Console.WriteLine("Please enter a distance in miles");
-
-            value = Console.ReadLine();
-            miles = Convert.ToInt16(value);
-
-            feet = miles * 5028;
-
-            Console.WriteLine("The number of feet = " + feet);
-
-        }
->>>>>>> ef65689c6f0e28cec69d75db6087248b7037bc06
+        
     }
 }
