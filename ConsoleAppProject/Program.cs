@@ -1,5 +1,6 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -26,22 +27,23 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine("  =================================================");
             Console.WriteLine();
-<<<<<<< HEAD
+
             Console.WriteLine("     BNU CO453 Applications Programming 2021-2022! ");
             Console.WriteLine("                                ");
             Console.WriteLine("  =================================================");
-=======
+
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2021-2022! ");
             Console.WriteLine("        by Nicoara Danci                          ");
             Console.WriteLine(" =================================================");
->>>>>>> 2d1e4bc64c05c955731fc35cc7e0296e51d014c5
+
             Console.WriteLine();
 
             string[] choices = new string[]
             {
                 "Distance Converter",
                 "BMI Calculator",
+                "Student Grades"
                 
             };
 
@@ -57,6 +59,11 @@ namespace ConsoleAppProject
             {
                 BMI calculator = new BMI();
                 calculator.Run();
+            }
+            else if (choice == 3)
+            {
+                StudentGrades studentGrades = new StudentGrades();
+                studentGrades.Run();
             }
 
         }
