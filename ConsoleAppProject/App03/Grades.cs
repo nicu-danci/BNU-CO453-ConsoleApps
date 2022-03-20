@@ -9,8 +9,15 @@ namespace ConsoleAppProject.App03
     /// Grade D is Third Class   : 40 - 49
     /// Grade F is Fail          :  0 - 39
     /// </summary>
+    /// 
+    /// <author>
+    /// Nicoara Danci 20/03/2022
+    /// </author>
     public enum Grades
     {
+        [Display(Name = "No Grade")]
+        [Description("Unmarked")]
+        None,
         [Display(Name = "Fail")]
         [Description("Referred")]
         F,
