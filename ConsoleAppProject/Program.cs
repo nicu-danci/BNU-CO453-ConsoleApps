@@ -12,7 +12,7 @@ namespace ConsoleAppProject
     /// It enables the user to select wich application to use
     /// 
     /// This Project has been modified by:
-    /// Nicoara Danci 07/03/2022
+    /// Nicoara Danci 20/03/2022
     /// </summary>
 
     public static class Program
