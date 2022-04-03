@@ -1,35 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-
-
 namespace ConsoleAppProject.App04
 {
     ///<summary>
-    /// The NewsFeed class stores news posts for the news feed in a social network 
-    /// application.
+    /// The NewsFeed class stores news posts for the
+    /// news feed in a social network application.
     /// 
-    /// Display of the posts is currently simulated by printing the details to the
-    /// terminal. (Later, this should display in a browser.)
+    /// Display of the posts is currently simulated
+    /// by printing the details to the terminal.
+    /// (Later, this should display in a browser.)
     /// 
-    /// This version does not save the data to disk, and it does not provide any
-    /// search or ordering functions.
+    /// This version does not save the data to disk,
+    /// and it does not provide any search or ordering
+    /// functions.
     ///</summary>
     ///<author>
-    ///  Michael Kölling and David J. Barnes
-    ///  version 0.1
-    ///</author> 
+    /// Nicoara Danci
+    /// @version 03/04/22
+    ///</author>
+
     public class NewsFeed
     {
-        private readonly List<MessagePost> messages;
-        private readonly List<PhotoPost> photos;
+        private readonly List<Post> posts;
 
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
         {
-            messages = new List<MessagePost>();
-            photos = new List<PhotoPost>();
+            posts = new List<Post>();
+
         }
 
 
@@ -40,7 +40,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-            messages.Add(message);
+            posts.Add(message);
         }
 
         ///<summary>
@@ -50,7 +50,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
-            photos.Add(photo);
+            posts.Add(photo);
         }
 
         ///<summary>
@@ -60,17 +60,66 @@ namespace ConsoleAppProject.App04
         public void Display()
         {
             // display all text posts
-            foreach (MessagePost message in messages)
+            foreach (Post post in posts)
             {
-                message.Display();
+                post.Display();
                 Console.WriteLine();   // empty line between posts
             }
+        }
 
-            // display all photos
-            foreach (PhotoPost photo in photos)
+        /// <summary>
+        /// Finds and retruns a post given a matching ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Post FindPost(int id)
+        {
+            return posts[id - 1];
+        }
+
+        /// <summary>
+        /// Removes a post given a matching ID
+        /// </summary>
+        /// <param name="id"></param>
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+            posts.Remove(post);
+        }
+
+        /// <summary>
+        /// Displays all post from a particular user line by line
+        /// </summary>
+        /// <param name="author"></param>
+        public void DisplayUsersPost(string author)
+        {
+            foreach (Post post in posts)
             {
-                photo.Display();
-                Console.WriteLine();   // empty line between posts
+                if (post.Username == author)
+                {
+                    post.Display();
+                    Console.WriteLine("----------------------------");   // space between posts
+                }
+            }
+        }
+
+        /// <summary>
+        /// This function uses the timestamps given by
+        /// the user to display all posts within the
+        /// given time range
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        public void DisplayTimeRangePost(DateTime startDate, DateTime endDate)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Timestamp >= startDate && post.Timestamp <= endDate)
+                {
+                    post.Display();
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("----------------------------");   // space between posts
+                }
             }
         }
     }
