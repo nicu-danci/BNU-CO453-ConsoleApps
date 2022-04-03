@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -11,8 +12,8 @@ namespace ConsoleAppProject
     /// The main method is called first whe the program starts.
     /// It enables the user to select wich application to use
     /// 
-    /// This Project has been modified by:
-    /// Nicoara Danci 20/03/2022
+    /// Nicoara Danci
+    /// @version 03/04/22
     /// </summary>
 
     public static class Program
@@ -43,7 +44,8 @@ namespace ConsoleAppProject
             {
                 "Distance Converter",
                 "BMI Calculator",
-                "Student Grades"
+                "Student Grades",
+                "Social Network"
                 
             };
 
@@ -64,6 +66,11 @@ namespace ConsoleAppProject
             {
                 StudentGrades studentGrades = new StudentGrades();
                 studentGrades.Run();
+            }
+            else if (choice == 4)
+            {
+                NetworkApp network = new NetworkApp();
+                network.Run();
             }
 
         }
